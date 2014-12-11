@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84A178BB1A3A167700C3D0BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178BA1A3A167700C3D0BB /* main.m */; };
+		84A178BE1A3A167700C3D0BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178BD1A3A167700C3D0BB /* AppDelegate.m */; };
+		84A178C11A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A178BF1A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld */; };
+		84A178C41A3A167700C3D0BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178C31A3A167700C3D0BB /* ViewController.m */; };
+		84A178C71A3A167700C3D0BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A178C51A3A167700C3D0BB /* Main.storyboard */; };
+		84A178C91A3A167700C3D0BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A178C81A3A167700C3D0BB /* Images.xcassets */; };
+		84A178CC1A3A167700C3D0BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A178CA1A3A167700C3D0BB /* LaunchScreen.xib */; };
+		84A178D81A3A167700C3D0BB /* NabiSquareHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84A178D21A3A167700C3D0BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A178AD1A3A167600C3D0BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84A178B41A3A167600C3D0BB;
+			remoteInfo = NabiSquareHD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84A178B51A3A167700C3D0BB /* NabiSquareHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NabiSquareHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A178B91A3A167700C3D0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A178BA1A3A167700C3D0BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84A178BC1A3A167700C3D0BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84A178BD1A3A167700C3D0BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84A178C01A3A167700C3D0BB /* NabiSquareHD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NabiSquareHD.xcdatamodel; sourceTree = "<group>"; };
+		84A178C21A3A167700C3D0BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		84A178C31A3A167700C3D0BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84A178C61A3A167700C3D0BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84A178C81A3A167700C3D0BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84A178CB1A3A167700C3D0BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NabiSquareHDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A178D61A3A167700C3D0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NabiSquareHDTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84A178B21A3A167600C3D0BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A178CE1A3A167700C3D0BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84A178AC1A3A167600C3D0BB = {
+			isa = PBXGroup;
+			children = (
+				84A178B71A3A167700C3D0BB /* NabiSquareHD */,
+				84A178D41A3A167700C3D0BB /* NabiSquareHDTests */,
+				84A178B61A3A167700C3D0BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84A178B61A3A167700C3D0BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84A178B51A3A167700C3D0BB /* NabiSquareHD.app */,
+				84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84A178B71A3A167700C3D0BB /* NabiSquareHD */ = {
+			isa = PBXGroup;
+			children = (
+				84A178BC1A3A167700C3D0BB /* AppDelegate.h */,
+				84A178BD1A3A167700C3D0BB /* AppDelegate.m */,
+				84A178C21A3A167700C3D0BB /* ViewController.h */,
+				84A178C31A3A167700C3D0BB /* ViewController.m */,
+				84A178C51A3A167700C3D0BB /* Main.storyboard */,
+				84A178C81A3A167700C3D0BB /* Images.xcassets */,
+				84A178CA1A3A167700C3D0BB /* LaunchScreen.xib */,
+				84A178BF1A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld */,
+				84A178B81A3A167700C3D0BB /* Supporting Files */,
+			);
+			path = NabiSquareHD;
+			sourceTree = "<group>";
+		};
+		84A178B81A3A167700C3D0BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A178B91A3A167700C3D0BB /* Info.plist */,
+				84A178BA1A3A167700C3D0BB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A178D41A3A167700C3D0BB /* NabiSquareHDTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */,
+				84A178D51A3A167700C3D0BB /* Supporting Files */,
+			);
+			path = NabiSquareHDTests;
+			sourceTree = "<group>";
+		};
+		84A178D51A3A167700C3D0BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A178D61A3A167700C3D0BB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84A178B41A3A167600C3D0BB /* NabiSquareHD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A178DB1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHD" */;
+			buildPhases = (
+				84A178B11A3A167600C3D0BB /* Sources */,
+				84A178B21A3A167600C3D0BB /* Frameworks */,
+				84A178B31A3A167600C3D0BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NabiSquareHD;
+			productName = NabiSquareHD;
+			productReference = 84A178B51A3A167700C3D0BB /* NabiSquareHD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84A178D01A3A167700C3D0BB /* NabiSquareHDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A178DE1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHDTests" */;
+			buildPhases = (
+				84A178CD1A3A167700C3D0BB /* Sources */,
+				84A178CE1A3A167700C3D0BB /* Frameworks */,
+				84A178CF1A3A167700C3D0BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84A178D31A3A167700C3D0BB /* PBXTargetDependency */,
+			);
+			name = NabiSquareHDTests;
+			productName = NabiSquareHDTests;
+			productReference = 84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84A178AD1A3A167600C3D0BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Sutan;
+				TargetAttributes = {
+					84A178B41A3A167600C3D0BB = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					84A178D01A3A167700C3D0BB = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 84A178B41A3A167600C3D0BB;
+					};
+				};
+			};
+			buildConfigurationList = 84A178B01A3A167600C3D0BB /* Build configuration list for PBXProject "NabiSquareHD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84A178AC1A3A167600C3D0BB;
+			productRefGroup = 84A178B61A3A167700C3D0BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84A178B41A3A167600C3D0BB /* NabiSquareHD */,
+				84A178D01A3A167700C3D0BB /* NabiSquareHDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84A178B31A3A167600C3D0BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A178C71A3A167700C3D0BB /* Main.storyboard in Resources */,
+				84A178CC1A3A167700C3D0BB /* LaunchScreen.xib in Resources */,
+				84A178C91A3A167700C3D0BB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A178CF1A3A167700C3D0BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84A178B11A3A167600C3D0BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A178BE1A3A167700C3D0BB /* AppDelegate.m in Sources */,
+				84A178C11A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld in Sources */,
+				84A178C41A3A167700C3D0BB /* ViewController.m in Sources */,
+				84A178BB1A3A167700C3D0BB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A178CD1A3A167700C3D0BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A178D81A3A167700C3D0BB /* NabiSquareHDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84A178D31A3A167700C3D0BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84A178B41A3A167600C3D0BB /* NabiSquareHD */;
+			targetProxy = 84A178D21A3A167700C3D0BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84A178C51A3A167700C3D0BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A178C61A3A167700C3D0BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84A178CA1A3A167700C3D0BB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A178CB1A3A167700C3D0BB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84A178D91A3A167700C3D0BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84A178DA1A3A167700C3D0BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84A178DC1A3A167700C3D0BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NabiSquareHD/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84A178DD1A3A167700C3D0BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NabiSquareHD/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		84A178DF1A3A167700C3D0BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NabiSquareHDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NabiSquareHD.app/NabiSquareHD";
+			};
+			name = Debug;
+		};
+		84A178E01A3A167700C3D0BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NabiSquareHDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NabiSquareHD.app/NabiSquareHD";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84A178B01A3A167600C3D0BB /* Build configuration list for PBXProject "NabiSquareHD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A178D91A3A167700C3D0BB /* Debug */,
+				84A178DA1A3A167700C3D0BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84A178DB1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A178DC1A3A167700C3D0BB /* Debug */,
+				84A178DD1A3A167700C3D0BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		84A178DE1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A178DF1A3A167700C3D0BB /* Debug */,
+				84A178E01A3A167700C3D0BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84A178BF1A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84A178C01A3A167700C3D0BB /* NabiSquareHD.xcdatamodel */,
+			);
+			currentVersion = 84A178C01A3A167700C3D0BB /* NabiSquareHD.xcdatamodel */;
+			path = NabiSquareHD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 84A178AD1A3A167600C3D0BB /* Project object */;
+}
