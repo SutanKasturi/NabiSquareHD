@@ -224,9 +224,6 @@ static BOOL _warningShownAlready = NO;
 #pragma mark - Camera Command
 
 - (BOOL) isWiFiConnectedToCamera {
-    if ( _firstCreate ){
-        [self showRemote];
-    }
     _firstCreate = NO;
     if ( [self isCameraWiFi] ) {
         [NabiCameraHttpCommands sendCameraCommand:CAMERA_ALL_SETTINGS
