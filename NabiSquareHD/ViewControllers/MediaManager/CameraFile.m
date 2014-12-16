@@ -13,6 +13,8 @@
 - (instancetype) init {
     self = [super init];
     if ( self ) {
+        self.completeDownloading = NO;
+        self.startDownloading = NO;
         self.thumbnailCreated = NO;
         self.cacheThumbnailPath = @"";
     }

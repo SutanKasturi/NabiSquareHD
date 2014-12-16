@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MPMoviePlayerController.h>
 
-@interface VideoPreviewViewController : UIViewController
+@interface VideoPreviewViewController : UIViewController {
+    BOOL isPortrait;
+}
+
+@property (nonatomic, strong) NSString *videoUrl;
+@property (nonatomic, strong) MPMoviePlayerController *videoController;
 
 @end

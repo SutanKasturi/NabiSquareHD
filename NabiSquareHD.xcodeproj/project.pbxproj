@@ -156,6 +156,7 @@
 		84A178C91A3A167700C3D0BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A178C81A3A167700C3D0BB /* Images.xcassets */; };
 		84A178CC1A3A167700C3D0BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A178CA1A3A167700C3D0BB /* LaunchScreen.xib */; };
 		84A178D81A3A167700C3D0BB /* NabiSquareHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */; };
+		84ABEB781A402D48004E2DEF /* FirmwareUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ABEB771A402D48004E2DEF /* FirmwareUpdateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +360,8 @@
 		84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NabiSquareHDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A178D61A3A167700C3D0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NabiSquareHDTests.m; sourceTree = "<group>"; };
+		84ABEB761A402D48004E2DEF /* FirmwareUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirmwareUpdateViewController.h; path = ViewControllers/FirmwareUpdate/FirmwareUpdateViewController.h; sourceTree = "<group>"; };
+		84ABEB771A402D48004E2DEF /* FirmwareUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirmwareUpdateViewController.m; path = ViewControllers/FirmwareUpdate/FirmwareUpdateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +676,7 @@
 		84824EF01A3A39ED0086D528 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84ABEB751A402D2C004E2DEF /* FirmwareUpdate */,
 				845E09D21A3F260E00BFE627 /* MediaManager */,
 				845E082F1A3AFC0000BFE627 /* NavBar */,
 				845E089F1A3BF60800BFE627 /* RemoteView */,
@@ -766,6 +770,15 @@
 				84A178D61A3A167700C3D0BB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84ABEB751A402D2C004E2DEF /* FirmwareUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				84ABEB761A402D48004E2DEF /* FirmwareUpdateViewController.h */,
+				84ABEB771A402D48004E2DEF /* FirmwareUpdateViewController.m */,
+			);
+			name = FirmwareUpdate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1032,6 +1045,7 @@
 				84A178C11A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld in Sources */,
 				845E09C61A3D049A00BFE627 /* AWSOptionViewController.m in Sources */,
 				845E09D51A3F262900BFE627 /* MediaManagerViewController.m in Sources */,
+				84ABEB781A402D48004E2DEF /* FirmwareUpdateViewController.m in Sources */,
 				845E08B01A3BFFC800BFE627 /* UIView+Addition.m in Sources */,
 				845E09BD1A3D020400BFE627 /* ImageOptionViewController.m in Sources */,
 				845E08BA1A3C58CE00BFE627 /* EasyOptionViewController.m in Sources */,
@@ -1176,6 +1190,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NabiSquareHD/NabiSquareHD-Prefix.pch";
 				INFOPLIST_FILE = NabiSquareHD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1189,6 +1204,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NabiSquareHD/NabiSquareHD-Prefix.pch";
 				INFOPLIST_FILE = NabiSquareHD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

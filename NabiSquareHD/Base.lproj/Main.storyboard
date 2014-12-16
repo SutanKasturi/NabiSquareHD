@@ -238,30 +238,122 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdj-Ay-ocy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-S5-H2P" customClass="MDRadialProgressView">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="V93-iQ-KMB"/>
+                                    <constraint firstAttribute="width" constant="50" id="bpA-Ie-QzI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="g5H-S5-H2P" secondAttribute="centerY" id="67Q-lm-yC3"/>
                             <constraint firstItem="1Se-M0-nPe" firstAttribute="top" secondItem="Cdj-Ay-ocy" secondAttribute="bottom" id="WSl-8d-pgy"/>
                             <constraint firstItem="Cdj-Ay-ocy" firstAttribute="top" secondItem="Ibo-O0-DVZ" secondAttribute="top" id="ZUQ-xu-Jnx"/>
                             <constraint firstAttribute="trailing" secondItem="Cdj-Ay-ocy" secondAttribute="trailing" id="erM-pu-XiI"/>
+                            <constraint firstAttribute="centerX" secondItem="g5H-S5-H2P" secondAttribute="centerX" id="mdE-H6-JZR"/>
                             <constraint firstItem="Cdj-Ay-ocy" firstAttribute="leading" secondItem="Ibo-O0-DVZ" secondAttribute="leading" id="zo6-99-jxK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="previewImageView" destination="Cdj-Ay-ocy" id="pt3-eW-WQa"/>
+                        <outlet property="progressView" destination="g5H-S5-H2P" id="cyM-Xq-ibP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p52-L6-jR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2764" y="560"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="3x8-J6-fsb">
+        <!--Video Preview View Controller-->
+        <scene sceneID="LDb-a7-WD8">
             <objects>
-                <avPlayerViewController storyboardIdentifier="VideoViewController" videoGravity="AVLayerVideoGravityResizeAspect" id="stM-gH-2mJ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x01-6M-NAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="VideoPreviewViewController" id="0DF-Vi-zdP" customClass="VideoPreviewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SPb-9s-Qyp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Khp-Cj-RoP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vOx-O0-xSi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUM-jr-0v1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3451" y="560"/>
+            <point key="canvasLocation" x="3428" y="560"/>
+        </scene>
+        <!--Firmware Update View Controller-->
+        <scene sceneID="AIJ-C8-W77">
+            <objects>
+                <viewController storyboardIdentifier="FirmwareUpdateViewController" id="g3i-Jx-PBJ" customClass="FirmwareUpdateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Ib-w9-nLP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kgc-Sg-2nF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OuI-bQ-SAH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundgradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="AMf-N3-wfa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kids.png" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-kc-DjF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-nd-6Qg">
+                                <rect key="frame" x="225" y="299" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1UL-tu-zTT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="Fqo-Vj-0uw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Zon-Me-afw"/>
+                                    <constraint firstAttribute="height" constant="2" id="gS5-QO-6U9"/>
+                                </constraints>
+                            </progressView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ttd-VT-kvr">
+                                <rect key="frame" x="282" y="254" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking for new firmware..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngf-5U-2ji">
+                                <rect key="frame" x="16" y="202" width="568" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SUF-id-Ahg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="xqG-nd-6Qg" secondAttribute="centerY" id="21D-h8-Vnl"/>
+                            <constraint firstItem="Kgc-Sg-2nF" firstAttribute="top" secondItem="cw7-kc-DjF" secondAttribute="bottom" id="29a-cP-iRX"/>
+                            <constraint firstAttribute="trailing" secondItem="AMf-N3-wfa" secondAttribute="trailing" id="7nw-N1-FXT"/>
+                            <constraint firstAttribute="centerX" secondItem="xqG-nd-6Qg" secondAttribute="centerX" id="897-Tm-qbo"/>
+                            <constraint firstItem="xqG-nd-6Qg" firstAttribute="top" secondItem="Ttd-VT-kvr" secondAttribute="bottom" constant="8" id="9Ij-Ea-0QP"/>
+                            <constraint firstAttribute="trailing" secondItem="cw7-kc-DjF" secondAttribute="trailing" id="Jf1-ny-G9D"/>
+                            <constraint firstItem="AMf-N3-wfa" firstAttribute="leading" secondItem="OuI-bQ-SAH" secondAttribute="leading" id="NV8-3A-OOt"/>
+                            <constraint firstItem="cw7-kc-DjF" firstAttribute="leading" secondItem="OuI-bQ-SAH" secondAttribute="leading" id="Nrb-pb-TS8"/>
+                            <constraint firstAttribute="centerY" secondItem="xqG-nd-6Qg" secondAttribute="centerY" id="Ny0-kZ-w2Q"/>
+                            <constraint firstItem="AMf-N3-wfa" firstAttribute="top" secondItem="OuI-bQ-SAH" secondAttribute="top" id="Q9Q-tu-4N6"/>
+                            <constraint firstItem="cw7-kc-DjF" firstAttribute="top" secondItem="OuI-bQ-SAH" secondAttribute="top" id="Rfg-IR-hP3"/>
+                            <constraint firstItem="Ngf-5U-2ji" firstAttribute="leading" secondItem="OuI-bQ-SAH" secondAttribute="leading" constant="16" id="Ud2-tW-cOj"/>
+                            <constraint firstAttribute="trailing" secondItem="Ngf-5U-2ji" secondAttribute="trailing" constant="16" id="b6F-S6-3kg"/>
+                            <constraint firstAttribute="centerX" secondItem="xqG-nd-6Qg" secondAttribute="centerX" id="eNp-8J-VrR"/>
+                            <constraint firstAttribute="centerX" secondItem="Ttd-VT-kvr" secondAttribute="centerX" id="hfJ-mC-PL4"/>
+                            <constraint firstItem="Ttd-VT-kvr" firstAttribute="top" secondItem="Ngf-5U-2ji" secondAttribute="bottom" constant="8" id="oz3-sO-3sV"/>
+                            <constraint firstItem="Kgc-Sg-2nF" firstAttribute="top" secondItem="AMf-N3-wfa" secondAttribute="bottom" id="xed-qX-koc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firmwareDownloadProgressBar" destination="xqG-nd-6Qg" id="zji-fL-qeU"/>
+                        <outlet property="firmwareStatusActivity" destination="Ttd-VT-kvr" id="8HD-FA-UiZ"/>
+                        <outlet property="firmwareStatusLabel" destination="Ngf-5U-2ji" id="ppr-zo-xKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ys4-aT-Uof" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="-128"/>
         </scene>
         <!--Media Manager View Controller-->
         <scene sceneID="07h-Tf-goZ">
@@ -303,8 +395,20 @@
                                                     <state key="normal" image="play.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" image="play_active.png"/>
                                                     <state key="highlighted" image="play_active.png"/>
+                                                    <connections>
+                                                        <action selector="onStart:" destination="hGw-4D-8CU" eventType="touchUpInside" id="qyU-hl-h7V"/>
+                                                    </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYI-hr-I8q" customClass="MDRadialProgressView">
+                                                    <rect key="frame" x="25" y="25" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="UUn-iP-hft"/>
+                                                        <constraint firstAttribute="height" constant="50" id="gwd-Jt-Ov7"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -313,12 +417,15 @@
                                             <constraint firstItem="iDi-0H-W3D" firstAttribute="leading" secondItem="hGw-4D-8CU" secondAttribute="leading" id="OCI-kN-hca"/>
                                             <constraint firstAttribute="trailing" secondItem="ENM-Pu-qzT" secondAttribute="trailing" constant="10" id="cyG-BL-rgx"/>
                                             <constraint firstAttribute="bottom" secondItem="iDi-0H-W3D" secondAttribute="bottom" id="eLc-rK-4dk"/>
+                                            <constraint firstAttribute="centerY" secondItem="LYI-hr-I8q" secondAttribute="centerY" id="fBG-wA-WfT"/>
                                             <constraint firstItem="iDi-0H-W3D" firstAttribute="top" secondItem="hGw-4D-8CU" secondAttribute="top" id="oHn-LI-lHo"/>
                                             <constraint firstAttribute="centerY" secondItem="ENM-Pu-qzT" secondAttribute="centerY" id="pyl-K4-1yn"/>
+                                            <constraint firstAttribute="centerX" secondItem="LYI-hr-I8q" secondAttribute="centerX" id="qnq-Xr-gIe"/>
                                             <constraint firstAttribute="trailing" secondItem="iDi-0H-W3D" secondAttribute="trailing" id="z58-Vn-H0D"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="playButton" destination="ENM-Pu-qzT" id="X3d-um-H3c"/>
+                                            <outlet property="progressView" destination="LYI-hr-I8q" id="upt-K9-kNy"/>
                                             <outlet property="thumbnailImageView" destination="iDi-0H-W3D" id="s2L-aU-Us5"/>
                                         </connections>
                                     </collectionViewCell>
@@ -521,11 +628,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wLC-gI-Jq3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b59-Ie-8cf">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj1-hS-MfD">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="272" y="390" width="80" height="80"/>
                                 <state key="normal" image="record_active.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -536,15 +643,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="80" height="80"/>
                     <connections>
                         <outlet property="recordButton" destination="Qj1-hS-MfD" id="dJL-pV-r1W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbZ-Tc-5KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="1076"/>
+            <point key="canvasLocation" x="1122" y="1758"/>
         </scene>
         <!--Advanced Option View Controller-->
         <scene sceneID="HJX-pW-ty8">

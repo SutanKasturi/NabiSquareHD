@@ -18,6 +18,8 @@
 @property (nonatomic, assign) BOOL thumbnailCreated;
 @property (nonatomic, strong) NSString *cacheThumbnailPath;
 @property (nonatomic, strong) NSString *thumbnailUrl;
+@property (nonatomic, assign) BOOL completeDownloading;
+@property (nonatomic, assign) BOOL startDownloading;
 
 - (NSString*) getReadableDate;
 

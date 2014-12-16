@@ -7,4 +7,5 @@ pod 'Reachability'
 pod 'MZTimerLabel'
 pod 'SDWebImage'
 pod 'AFNetworking'
+pod 'MDRadialProgress'
 

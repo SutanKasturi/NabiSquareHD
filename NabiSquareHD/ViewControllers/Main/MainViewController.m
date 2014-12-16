@@ -48,15 +48,18 @@ static BOOL _warningShownAlready = NO;
     
     self.localWiFiReach = [Reachability reachabilityForLocalWiFi];
     self.localWiFiReach.reachableOnWWAN = NO;
-    [self showWiFi:self.localWiFiReach];
+    
     self.buttonConnect.translatesAutoresizingMaskIntoConstraints = YES;
     self.mainActivityIndicator.translatesAutoresizingMaskIntoConstraints = YES;
     self.mainScreenMessage.translatesAutoresizingMaskIntoConstraints = YES;
+    
+    [self showWiFi:self.localWiFiReach];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 //    [self setScreenMessage];
     // WiFiReceiver
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
 //    [self startScan];
     
@@ -78,6 +81,10 @@ static BOOL _warningShownAlready = NO;
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:kReachabilityChangedNotification];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:UIDeviceOrientationDidChangeNotification];
 }
 
 #pragma mark - Screen Orientation

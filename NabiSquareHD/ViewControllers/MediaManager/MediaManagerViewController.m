@@ -14,8 +14,10 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImagePreviewViewController.h"
 #import "OverlayViewController.h"
+#import "CustomViewController.h"
+#import "VideoPreviewViewController.h"
 
-@interface MediaManagerViewController ()<UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface MediaManagerViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, MediaManagerCollectionViewCellDelegate> {
     BOOL isPortrait;
 }
 
@@ -103,6 +105,8 @@
             cameraFile.attr = attr;
             cameraFile.time = time;
             cameraFile.thumbnailUrl = thumbnailUrl;
+            if ( [self isExistFile:filePath] )
+                cameraFile.completeDownloading = YES;
             
             [_cameraFiles addObject:cameraFile];
         }
@@ -123,6 +127,18 @@
     }
 }
 
+- (BOOL) isExistFile:(NSString*)cameraFilePath {
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSString *documnetDirectoryPath = dirPaths[0];
+    NSString *filePath = [documnetDirectoryPath stringByAppendingPathComponent:[cameraFilePath lastPathComponent]];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ( [manager fileExistsAtPath:filePath] )
+        return YES;
+    
+    return NO;
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -137,6 +153,7 @@
     MediaManagerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MediaManagerCollectionViewCell" forIndexPath:indexPath];
     
     [cell setCameraFile:[self cameraFiles][indexPath.row]];
+    cell.delegate = self;
     
     return cell;
 }
@@ -148,44 +165,23 @@
     if ( [cameraFile.format isEqualToString:@"jpeg"] ) {
         ImagePreviewViewController *imagePreviewViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePreviewViewController"];
         imagePreviewViewController.cameraFile = cameraFile;
-        [self.navigationController pushViewController:imagePreviewViewController animated:YES];
+        CustomViewController *previewViewController = [[CustomViewController alloc] initWithViewController:imagePreviewViewController title:@"Image Preview" hideNavBar:NO];
+        previewViewController.view.frame = [UIScreen mainScreen].bounds;
+        [self.navigationController pushViewController:previewViewController animated:YES];
     }
     else {
-        [overlayViewController.view setHidden:NO];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *videoPath = [documentsDirectory stringByAppendingString:@"NabiSquareHdVideo"];
-        if ( ![[NSFileManager defaultManager] fileExistsAtPath:videoPath] ) {
-            NSError *error;
-            [[NSFileManager defaultManager] createDirectoryAtPath:videoPath withIntermediateDirectories:NO attributes:nil error:&error];
-            if ( error ) {
-                NSLog(@"Error create directory for video");
-                return;
-            }
-        }
         
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-        
-        NSString *videoUrl = [NSString stringWithFormat:@"%@%@", CAMERA_HTTP_HOST, cameraFile.cameraFilePath];
-        NSURL *URL = [NSURL URLWithString:videoUrl];
-        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-        
-        NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request
-                                                                         progress:nil
-                                                                      destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-                                                                          NSURL *path = [NSURL URLWithString:videoPath];
-                                                                          return [path URLByAppendingPathComponent:[response suggestedFilename]];
-                                                                      }
-                                                                completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-                                                                    NSString *msg = [NSString stringWithFormat:@"File donwloaded to: %@", filePath];
-                                                                    NSLog(@"%@", msg);
-                                                                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                                                    [alert show];
-                                                                    [overlayViewController.view setHidden:YES];
-                                                                }];
-        [downloadTask resume];
     }
+}
+
+#pragma mark - MediaManagerCollectionViewCellDelegate
+
+- (void)onVideoPlay:(NSString *)videoUrl {
+    VideoPreviewViewController *videoPreviewViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPreviewViewController"];
+    videoPreviewViewController.videoUrl = videoUrl;
+    CustomViewController *previewViewController = [[CustomViewController alloc] initWithViewController:videoPreviewViewController title:@"Video Preview" hideNavBar:NO];
+    previewViewController.view.frame = [UIScreen mainScreen].bounds;
+    [self.navigationController pushViewController:previewViewController animated:YES];
 }
 
 @end

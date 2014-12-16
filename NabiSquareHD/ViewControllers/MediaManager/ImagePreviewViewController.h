@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraFile.h"
+#import <MDRadialProgress/MDRadialProgressView.h>
 
 @interface ImagePreviewViewController : UIViewController
 
 @property (nonatomic, strong) CameraFile *cameraFile;
 
 @property (weak, nonatomic) IBOutlet UIImageView *previewImageView;
+@property (weak, nonatomic) IBOutlet MDRadialProgressView *progressView;
 
 @end

@@ -61,6 +61,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 0
 
+// MDRadialProgress
+#define COCOAPODS_POD_AVAILABLE_MDRadialProgress
+#define COCOAPODS_VERSION_MAJOR_MDRadialProgress 1
+#define COCOAPODS_VERSION_MINOR_MDRadialProgress 3
+#define COCOAPODS_VERSION_PATCH_MDRadialProgress 1
+
 // MZTimerLabel
 #define COCOAPODS_POD_AVAILABLE_MZTimerLabel
 #define COCOAPODS_VERSION_MAJOR_MZTimerLabel 0
