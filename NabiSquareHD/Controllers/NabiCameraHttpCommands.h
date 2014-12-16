@@ -20,6 +20,11 @@
                   success:(void (^)(id result))success
                   failure:(void (^)(NSError *error))failure;
 
++ (void) ChangeWiFiSettings:(NSString*)wifiName
+               wifiPassword:(NSString*)wifiPassword
+                    success:(void (^)(id result))success
+                    failure:(void (^)(NSError *error))failure;
+
 + (NSString*) parseCameraSettings:(NSString*)settingsResponse settingToFind:(NSString*)settingToFind;
 
 + (void) getLastThumbnail:(int)fromFirstFile

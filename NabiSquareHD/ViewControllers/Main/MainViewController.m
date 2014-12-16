@@ -71,6 +71,7 @@ static BOOL _warningShownAlready = NO;
     if ( mWifiConfigEncryptionKey == nil || [mWifiConfigEncryptionKey isEqualToString:@""] ) {
         mWifiConfigEncryptionKey = DEFAULT_PRESHAREDKEY;
     }
+    [self showMessage:@"Turning on WiFi..."];
     
     [self startScan];
 }
@@ -101,7 +102,7 @@ static BOOL _warningShownAlready = NO;
 }
 
 - (IBAction)onChangeWiFi:(id)sender {
-    CustomViewController *changeWiFiViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ChangeWiFiViewController"] title:HEADER_CHANGE_WIFI_SETTINGS hideNavBar:NO];
+    CustomViewController *changeWiFiViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ConnectToViewController"] title:@"Connect To" hideNavBar:NO];
     changeWiFiViewController.view.frame = [UIScreen mainScreen].bounds;
     [self.navigationController pushViewController:changeWiFiViewController animated:YES];
 }

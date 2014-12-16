@@ -42,6 +42,29 @@
          }];
 }
 
++ (void) ChangeWiFiSettings:(NSString*)wifiName
+               wifiPassword:(NSString*)wifiPassword
+                    success:(void (^)(id result))success
+                    failure:(void (^)(NSError *error))failure {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *url = [NSString stringWithFormat:@"%@/cgi-bin/Config.cgi?action=set&property=Net.WIFI_AP.SSID&value=%@&property=Net.WIFI_AP.CryptoKey&value=%@", CAMERA_HTTP_HOST, wifiName, wifiPassword];
+    NSLog(@"Camera Command : %@", url);
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"Success sendCameraCommand request : \n%@\n", responseObject);
+             if ( success ) {
+                 success(responseObject);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Uh oh. An error occurred in sendCameraCommand: \n%@\n", error.localizedDescription);
+             if ( failure ) {
+                 failure(error);
+             }
+         }];
+}
+
 + (void) getLastThumbnail:(int)fromFirstFile
                        success:(void (^)(id result))success
                        failure:(void (^)(NSError *error))failure{

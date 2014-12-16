@@ -1292,7 +1292,7 @@
                                     <constraint firstAttribute="height" constant="30" id="mPh-B2-ahh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onP-7b-P8k">
                                 <rect key="frame" x="16" y="238" width="121" height="40"/>
@@ -1408,7 +1408,7 @@
                                     <constraint firstAttribute="height" constant="30" id="FuL-TM-GEC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tza-7d-1o3">
                                 <rect key="frame" x="16" y="238" width="121" height="40"/>

@@ -10,6 +10,24 @@
 
 @implementation ConnectToViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSUserDefaults *sharedInstance = [NSUserDefaults standardUserDefaults];
+    NSString *mWifiConfigSSID = [sharedInstance objectForKey:PREFS_SSID];
+    NSString *mWifiConfigEncryptionKey = [sharedInstance objectForKey:PREFS_ENCRYPTION_KEY];
+    
+    if ( mWifiConfigSSID == nil || [mWifiConfigSSID isEqualToString:@""] ) {
+        mWifiConfigSSID = DEFAULT_SSID;
+    }
+    
+    if ( mWifiConfigEncryptionKey == nil || [mWifiConfigEncryptionKey isEqualToString:@""] ) {
+        mWifiConfigEncryptionKey = DEFAULT_PRESHAREDKEY;
+    }
+
+    self.wifiNameTextField.text = mWifiConfigSSID;
+    self.wifiPasswordTextField.text = mWifiConfigEncryptionKey;
+}
+
 - (IBAction)onUpdate:(id)sender {
     BOOL isValid = YES;
     if ( ![self.wifiNameTextField validate] || [self.wifiNameTextField.text isEqualToString:DEFAULT_SSID] ) {
