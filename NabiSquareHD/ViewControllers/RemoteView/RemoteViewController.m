@@ -12,6 +12,7 @@
 #import "OverlayViewController.h"
 #import "NabiCameraHttpCommands.h"
 #import "XMLDictionary.h"
+#import "CustomViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface RemoteViewController () {
@@ -138,6 +139,7 @@
     remainingFormatLabel.text = @"";
     pauseSync = NO;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(syncCameraSettings) userInfo:nil repeats:YES];
+    [self loadStreamAfterWait];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -252,7 +254,7 @@
     [NabiCameraHttpCommands sendCameraCommand:CAMERA_ALL_SETTINGS
                                       success:^(id result) {
                                           if ( result == nil || [result isEqualToString:@""] )
-                                              [self back];
+                                              [self onBack];
                                           
                                           [self setUIMode:[NabiCameraHttpCommands parseCameraSettings:result settingToFind:@"UIMode"] availableRecordTime:[NabiCameraHttpCommands parseCameraSettings:result settingToFind:@"Camera.Record.Remaining"]];
                                           [self setBatteryLevel:[NabiCameraHttpCommands parseCameraSettings:result settingToFind:@"Camera.Battery.Level"]];
@@ -267,11 +269,11 @@
                                           }
                                       }
                                       failure:^(NSError *error) {
-                                          [self back];
+                                          [self onBack];
                                       }];
 }
 
-- (void) back {
+- (void) onBack {
     [timerLabel pause];
     timerLabel = nil;
     [motionJpegImageView stop];
@@ -417,6 +419,9 @@
 
 #pragma mark - MediaManager
 - (void) showMediaManager {
+    CustomViewController *cameraRollViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MediaManagerViewController"] title:@"Camera Roll" hideNavBar:NO];
+    cameraRollViewController.view.frame = [UIScreen mainScreen].bounds;
+    [self.navigationController pushViewController:cameraRollViewController animated:YES];
 }
 
 @end

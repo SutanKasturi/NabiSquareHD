@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C213D6EC053DC0140F5A49E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B351FB7CA2AB91656E06B1 /* libPods.a */; };
+		8441B9CE1A40BEA80014CF95 /* CameraSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */; };
 		845E08321A3AFC2600BFE627 /* NavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E08311A3AFC2600BFE627 /* NavBarViewController.m */; };
 		845E08381A3AFC6000BFE627 /* ChangeWiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E08371A3AFC6000BFE627 /* ChangeWiFiViewController.m */; };
 		845E083B1A3AFDC700BFE627 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E083A1A3AFDC700BFE627 /* CustomViewController.m */; };
@@ -173,6 +174,8 @@
 		19B351FB7CA2AB91656E06B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		789AC8C40811D8F4E45EB986 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7A516458301136A1B1306C41 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8441B9CC1A40BEA80014CF95 /* CameraSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraSettingsViewController.h; path = ViewControllers/CameraSettings/CameraSettingsViewController.h; sourceTree = "<group>"; };
+		8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraSettingsViewController.m; path = ViewControllers/CameraSettings/CameraSettingsViewController.m; sourceTree = "<group>"; };
 		845E08301A3AFC2600BFE627 /* NavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavBarViewController.h; path = ViewControllers/NavBar/NavBarViewController.h; sourceTree = "<group>"; };
 		845E08311A3AFC2600BFE627 /* NavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavBarViewController.m; path = ViewControllers/NavBar/NavBarViewController.m; sourceTree = "<group>"; };
 		845E08361A3AFC6000BFE627 /* ChangeWiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeWiFiViewController.h; path = ViewControllers/ChangeWiFi/ChangeWiFiViewController.h; sourceTree = "<group>"; };
@@ -390,6 +393,15 @@
 				789AC8C40811D8F4E45EB986 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8441B9CB1A40BE880014CF95 /* CameraSettings */ = {
+			isa = PBXGroup;
+			children = (
+				8441B9CC1A40BEA80014CF95 /* CameraSettingsViewController.h */,
+				8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */,
+			);
+			name = CameraSettings;
 			sourceTree = "<group>";
 		};
 		845E082E1A3AFBEE00BFE627 /* ChangeWiFi */ = {
@@ -676,6 +688,7 @@
 		84824EF01A3A39ED0086D528 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9CB1A40BE880014CF95 /* CameraSettings */,
 				84ABEB751A402D2C004E2DEF /* FirmwareUpdate */,
 				845E09D21A3F260E00BFE627 /* MediaManager */,
 				845E082F1A3AFC0000BFE627 /* NavBar */,
@@ -1042,6 +1055,7 @@
 				845E083B1A3AFDC700BFE627 /* CustomViewController.m in Sources */,
 				845E089E1A3BF3C900BFE627 /* ConnectToViewController.m in Sources */,
 				845E09E51A3F479200BFE627 /* XMLDictionary.m in Sources */,
+				8441B9CE1A40BEA80014CF95 /* CameraSettingsViewController.m in Sources */,
 				84A178C11A3A167700C3D0BB /* NabiSquareHD.xcdatamodeld in Sources */,
 				845E09C61A3D049A00BFE627 /* AWSOptionViewController.m in Sources */,
 				845E09D51A3F262900BFE627 /* MediaManagerViewController.m in Sources */,
