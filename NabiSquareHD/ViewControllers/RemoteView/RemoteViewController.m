@@ -24,6 +24,7 @@
     BOOL firstGetFilesOnTaskCompleted;
     BOOL recStarted;
     CGFloat mediaManagerSize;
+    BOOL isConnected;
 }
 
 @property (nonatomic, strong) NSTimer *timer;
@@ -75,7 +76,8 @@
 
     motionJpegImageView = [[MotionJpegImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:motionJpegImageView];
-    
+    [motionJpegImageView setUrl:[NSURL URLWithString:CAMERA_STREAM_LIVEMJPEG_HTTP]];
+
     remainingFormatLabel = [[UILabel alloc] init];
     [self.view addSubview:remainingFormatLabel];
     
@@ -139,15 +141,15 @@
     remainingFormatLabel.text = @"";
     pauseSync = NO;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(syncCameraSettings) userInfo:nil repeats:YES];
+    [motionJpegImageView play];
     [self loadStreamAfterWait];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
     pauseSync = YES;
-    if ( motionJpegImageView )
-        [motionJpegImageView stop];
     [self.timer invalidate];
     self.timer = nil;
+    [motionJpegImageView stop];
     [super viewWillDisappear:animated];
 }
 
@@ -213,11 +215,6 @@
     return self.timerLabel;
 }
 
-- (void) killStream {
-    if ( motionJpegImageView )
-        [motionJpegImageView stop];
-}
-
 - (void) showSegue:(NSString*)text {
     if ( showingSegue == NO ) {
         showingSegue = YES;
@@ -235,11 +232,6 @@
 
 - (void) loadStreamAfterWait {
     [self showSegue:@""];
-    
-    if ( motionJpegImageView ) {
-        [motionJpegImageView stop];
-        [motionJpegImageView setUrl:[NSURL URLWithString:CAMERA_STREAM_LIVE_RTSP]];
-    }
     
     [self hideSegue];
 }
@@ -393,7 +385,6 @@
                                                   [timerLabel setHidden:YES];
                                                   [timerLabel pause];
                                                   
-                                                  [self killStream];
                                                   getLastThumnailDone = NO;
                                                   [self syncCameraSettings];
                                               }
@@ -407,7 +398,6 @@
                                               }
                                           }
                                           else {
-                                              [self killStream];
                                               getLastThumnailDone = NO;
                                               [self syncCameraSettings];
                                           }

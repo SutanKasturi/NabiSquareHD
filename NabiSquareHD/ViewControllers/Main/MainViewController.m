@@ -261,14 +261,14 @@ static BOOL _warningShownAlready = NO;
         NSString *cameraFirmwareVersion = [NabiCameraHttpCommands parseCameraSettings:result settingToFind:@"Camera.Menu.FWversion"];
         [sharedInstance setObject:cameraFirmwareVersion forKey:PREFS_FWVERSION];
         
-        if ( [mWifiConfigSSID isEqualToString:DEFAULT_SSID] ) {
-            CustomViewController *changeWiFiViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ConnectToViewController"] title:@"Connect To" hideNavBar:NO];
-            changeWiFiViewController.view.frame = [UIScreen mainScreen].bounds;
-            [self.navigationController pushViewController:changeWiFiViewController animated:YES];
-        }
-        else {
+//        if ( [mWifiConfigSSID isEqualToString:DEFAULT_SSID] ) {
+//            CustomViewController *changeWiFiViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ConnectToViewController"] title:@"Connect To" hideNavBar:NO];
+//            changeWiFiViewController.view.frame = [UIScreen mainScreen].bounds;
+//            [self.navigationController pushViewController:changeWiFiViewController animated:YES];
+//        }
+//        else {
             [self showRemote];
-        }
+//        }
     }
 }
 
