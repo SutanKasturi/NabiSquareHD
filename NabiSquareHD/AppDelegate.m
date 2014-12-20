@@ -3,7 +3,7 @@
 //  NabiSquareHD
 //
 //  Created by Admin on 12/12/14.
-//  Copyright (c) 2014 Sutan. All rights reserved.
+//  Copyright (c) 2014 Fuhu. All rights reserved.
 //
 
 #import "AppDelegate.h"

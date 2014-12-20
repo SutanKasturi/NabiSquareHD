@@ -3,7 +3,7 @@
 //  NabiSquareHD
 //
 //  Created by Admin on 12/12/14.
-//  Copyright (c) 2014 Sutan. All rights reserved.
+//  Copyright (c) 2014 Fuhu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -64,7 +64,7 @@
 #define CAMERA_WIFI_RESET @"/cgi-bin/Config.cgi?action=set&property=Net&value=reset"
 #define CAMERA_FIND_ME @"/cgi-bin/Config.cgi?action=set&property=Net&value=findme"
 
-#define CAMERA_STREAM_LIVEMJPEG_HTTP @"http://192.72.1.1/cgi-bin/stream.cgi?type=live"
+#define CAMERA_STREAM_LIVEMJPEG_HTTP @"http://192.72.1.1/cgi-bin/stream.cgi?type=live&resolution=320x240"
 #define CAMERA_STREAM_LIVE_RTSP @"rtsp://192.72.1.1/liveRTSP/av1"
 #define CAMERA_FIRMWARE_PREPARE_UPDATE @"/cgi-bin/Config.cgi?action=set&property=UIMode&value=UPDATEFW"
 #define FIRMWARE_UPDATE_URL_ @"http://update.fuhu.org/updates/fuhu/software/SquareHD?deviceType=Camera&deviceEdition=Camera-US&firmwareVersion=default&androidVersion=default&countryCode=US&lang=En_US"

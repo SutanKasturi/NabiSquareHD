@@ -3,7 +3,7 @@
 //  NabiSquareHD
 //
 //  Created by Admin on 12/13/14.
-//  Copyright (c) 2014 Sutan. All rights reserved.
+//  Copyright (c) 2014 Fuhu. All rights reserved.
 //
 
 #import "RemoteViewController.h"
@@ -346,9 +346,9 @@
             [self loadStreamAfterWait];
         }
         else {
-            NSDictionary *file = [[dict objectForKey:@"DCIM"] objectForKey:@"file"];
+            NSDictionary *file = [dict objectForKey:@"file"];
             NSString *filePath = [file objectForKey:@"name"];
-            NSString *format = [file objectForKey:@"format"];
+            NSString *format = [[file objectForKey:@"format"] objectForKey:@"__text"];
             NSString *thumbnailUrl = @"";
             if ( [format isEqualToString:@"jpeg"] ) {
                 thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/%@", filePath];

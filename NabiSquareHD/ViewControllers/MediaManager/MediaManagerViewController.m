@@ -3,7 +3,7 @@
 //  NabiSquareHD
 //
 //  Created by Admin on 12/15/14.
-//  Copyright (c) 2014 Sutan. All rights reserved.
+//  Copyright (c) 2014 Fuhu. All rights reserved.
 //
 
 #import "MediaManagerViewController.h"
@@ -82,16 +82,16 @@
         NSLog(@"getFilesOnTaskCompleted Error");
     }
     else {
-        NSArray *files = [[dict objectForKey:@"DCIM"] objectForKey:@"file"];
+        NSArray *files = [dict objectForKey:@"file"];
         for ( NSDictionary *file in files ) {
             NSString *filePath = [file objectForKey:@"name"];
-            NSString *format = [file objectForKey:@"format"];
+            NSString *format = [[file objectForKey:@"format"] objectForKey:@"__text"];
             int size = [[file objectForKey:@"size"] intValue];
             NSString *attr = [file objectForKey:@"attr"];
             NSString *time = [file objectForKey:@"time"];
             NSString *thumbnailUrl = @"";
             if ( [format isEqualToString:@"jpeg"] ) {
-                thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1%@", filePath];
+                thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/%@", filePath];
             }
             else {
                 NSString *fileName = [filePath substringFromIndex:[filePath rangeOfString:@"/" options:NSBackwardsSearch].location + 1];
@@ -111,7 +111,7 @@
             [_cameraFiles addObject:cameraFile];
         }
         
-        int amountPulled = [[[dict objectForKey:@"DCIM"] objectForKey:@"amount"] intValue];
+        int amountPulled = [[dict objectForKey:@"amount"] intValue];
         if ( amountPulled == 10 ) {
             [NabiCameraHttpCommands getFilesList:NO
                                          success:^(id result) {
