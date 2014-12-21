@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MotionJpegImageView.h"
 #import "MZTimerLabel.h"
 #import "OverlayViewController.h"
 #import "CameraControllerViewController.h"
@@ -22,7 +21,7 @@
 @property (strong, nonatomic) UIImageView *mediaManagerImageView;
 @property (strong, nonatomic) UILabel *remainingFormatLabel;
 @property (strong, nonatomic) UIImageView *batteryLevelImageView;
-@property (strong, nonatomic) MotionJpegImageView *motionJpegImageView;
+@property (strong, nonatomic) UIImageView *motionJpegImageView;
 @property (strong, nonatomic) MZTimerLabel *timerLabel;
 
 @end

@@ -16,6 +16,7 @@
 #import "OverlayViewController.h"
 #import "CustomViewController.h"
 #import "VideoPreviewViewController.h"
+#import <MediaPlayer/MPMoviePlayerViewController.h>
 
 @interface MediaManagerViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, MediaManagerCollectionViewCellDelegate> {
     BOOL isPortrait;
@@ -179,11 +180,15 @@
 #pragma mark - MediaManagerCollectionViewCellDelegate
 
 - (void)onVideoPlay:(NSString *)videoUrl {
-    VideoPreviewViewController *videoPreviewViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPreviewViewController"];
-    videoPreviewViewController.videoUrl = videoUrl;
-    CustomViewController *previewViewController = [[CustomViewController alloc] initWithViewController:videoPreviewViewController title:@"Video Preview" hideNavBar:NO];
-    previewViewController.view.frame = [UIScreen mainScreen].bounds;
-    [self.navigationController pushViewController:previewViewController animated:YES];
+//    VideoPreviewViewController *videoPreviewViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPreviewViewController"];
+//    videoPreviewViewController.videoUrl = videoUrl;
+//    CustomViewController *previewViewController = [[CustomViewController alloc] initWithViewController:videoPreviewViewController title:@"Video Preview" hideNavBar:NO];
+//    previewViewController.view.frame = [UIScreen mainScreen].bounds;
+//    [self.navigationController pushViewController:previewViewController animated:YES];
+    
+    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:videoUrl]];
+    movieController.moviePlayer.shouldAutoplay = YES;
+    [self presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 @end

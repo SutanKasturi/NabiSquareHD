@@ -430,6 +430,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ifM-y5-PkN" id="ZYG-h6-i9r"/>
+                                    <outlet property="delegate" destination="ifM-y5-PkN" id="GTp-Dh-Mcd"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

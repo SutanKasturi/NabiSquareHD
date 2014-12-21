@@ -47,7 +47,7 @@
             progressView.progressCounter = 0;
             [progressView setHidden:NO];
             
-            [previewImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", CAMERA_HTTP_HOST, cameraFile.cameraFilePath]]
+            [previewImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", CAMERA_HTTP_HOST, cameraFile.cameraFilePath]]
                                 placeholderImage:[UIImage imageNamed:@"default_image"]
                                          options:SDWebImageContinueInBackground
                                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {

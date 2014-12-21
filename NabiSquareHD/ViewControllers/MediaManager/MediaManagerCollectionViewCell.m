@@ -21,20 +21,20 @@
     self.mCameraFile = cameraFile;
     UIImage *defaultImage;
     
-    if ( self.mCameraFile.completeDownloading ) {
-        [self.playButton setSelected:YES];
-        [self.playButton setHidden:NO];
-        [self.progressView setHidden:YES];
-    }
-    else if ( self.mCameraFile.startDownloading ) {
-        [self.playButton setHidden:YES];
-        [self.progressView setHidden:NO];
-    }
-    else {
-        [self.playButton setHidden:NO];
-        [self.playButton setSelected:NO];
-        [self.progressView setHidden:YES];
-    }
+//    if ( self.mCameraFile.completeDownloading ) {
+//        [self.playButton setSelected:YES];
+//        [self.playButton setHidden:NO];
+//        [self.progressView setHidden:YES];
+//    }
+//    else if ( self.mCameraFile.startDownloading ) {
+//        [self.playButton setHidden:YES];
+//        [self.progressView setHidden:NO];
+//    }
+//    else {
+//        [self.playButton setHidden:NO];
+//        [self.playButton setSelected:NO];
+//        [self.progressView setHidden:YES];
+//    }
     
     if ( [cameraFile.format isEqualToString:@"jpeg"] ) {
         [self.playButton setHidden:YES];
@@ -110,6 +110,7 @@
             NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
             long long filesize = [fileSizeNumber longLongValue];
             NSLog(@"Filesize : %llu", filesize);
+            [self.delegate onVideoPlay:fullPath];
         }
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {

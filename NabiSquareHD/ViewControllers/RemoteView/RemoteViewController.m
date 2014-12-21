@@ -8,12 +8,13 @@
 
 #import "RemoteViewController.h"
 #import <MZTimerLabel/MZTimerLabel.h>
-#import "MotionJpegImageView.h"
+//#import "MotionJpegImageView.h"
 #import "OverlayViewController.h"
 #import "NabiCameraHttpCommands.h"
 #import "XMLDictionary.h"
 #import "CustomViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "RTSPPlayer.h"
 
 @interface RemoteViewController () {
     BOOL showingSegue;
@@ -25,9 +26,12 @@
     BOOL recStarted;
     CGFloat mediaManagerSize;
     BOOL isConnected;
+    
+    RTSPPlayer *video;
 }
 
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *streamingTimer;
 
 @end
 
@@ -73,10 +77,6 @@
     [self addChildViewController:cameraControllerViewController];
     [self.view insertSubview:cameraControllerViewController.view aboveSubview:self.view];
     cameraControllerViewController.view.frame = [UIScreen mainScreen].bounds;
-
-    motionJpegImageView = [[MotionJpegImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view addSubview:motionJpegImageView];
-    [motionJpegImageView setUrl:[NSURL URLWithString:CAMERA_STREAM_LIVEMJPEG_HTTP]];
 
     remainingFormatLabel = [[UILabel alloc] init];
     [self.view addSubview:remainingFormatLabel];
@@ -127,10 +127,9 @@
         mediaManagerSize = 100 * (screenHeight / 640);
     }
     
-    [self setupView];
-    
-    [self showSegue:@""];
-    [self syncCameraSettings];
+    motionJpegImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:motionJpegImageView];
+//    [motionJpegImageView setUrl:[NSURL URLWithString:CAMERA_STREAM_LIVEMJPEG_HTTP]];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -143,15 +142,18 @@
     remainingFormatLabel.text = @"";
     pauseSync = NO;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(syncCameraSettings) userInfo:nil repeats:YES];
-    [motionJpegImageView play];
+//    [motionJpegImageView play];
+    
+    [self setupView];
+    
+    [self showSegue:@""];
+    [self syncCameraSettings];
     [self loadStreamAfterWait];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
     pauseSync = YES;
-    [self.timer invalidate];
-    self.timer = nil;
-    [motionJpegImageView stop];
+    [self removeAll];
     [super viewWillDisappear:animated];
 }
 
@@ -191,6 +193,27 @@
     batteryLevelImageView.frame = CGRectMake(rect.size.width - 20 - 44, 84, 44, 24);
 
     mediaManagerImageView.frame = CGRectMake(rect.size.width - 20 - mediaManagerSize, rect.size.height - 20 - mediaManagerSize, mediaManagerSize, mediaManagerSize);
+    
+    video = nil;
+    video = [[RTSPPlayer alloc] initWithVideo:CAMERA_STREAM_LIVE_RTSP usesTcp:NO];
+    video.outputWidth = [UIScreen mainScreen].bounds.size.width;
+    video.outputHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    [_streamingTimer invalidate];
+    self.streamingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
+                                                           target:self
+                                                         selector:@selector(displayNextFrame:)
+                                                         userInfo:nil
+                                                          repeats:YES];
+}
+
+-(void)displayNextFrame:(NSTimer *)timer
+{
+    if (![video stepFrame]) {
+        [video closeAudio];
+        return;
+    }
+    motionJpegImageView.image = video.currentImage;
 }
 
 #pragma mark - Setup CammeraSettings
@@ -268,11 +291,24 @@
 }
 
 - (void) onBack {
+    [self removeAll];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) removeAll {
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [self.streamingTimer invalidate];
+    self.streamingTimer = nil;
+    
     [timerLabel pause];
     timerLabel = nil;
-    [motionJpegImageView stop];
+    //    [motionJpegImageView stop];
+    [video closeAudio];
+    video = nil;
+    
     motionJpegImageView = nil;
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) setUIMode:(NSString*)uimode availableRecordTime:(NSString*)availableRecordTime {
