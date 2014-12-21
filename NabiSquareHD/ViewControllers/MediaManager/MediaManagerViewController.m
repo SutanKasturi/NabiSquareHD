@@ -84,31 +84,33 @@
     else {
         NSArray *files = [dict objectForKey:@"file"];
         for ( NSDictionary *file in files ) {
-            NSString *filePath = [file objectForKey:@"name"];
-            NSString *format = [[file objectForKey:@"format"] objectForKey:@"__text"];
-            int size = [[file objectForKey:@"size"] intValue];
-            NSString *attr = [file objectForKey:@"attr"];
-            NSString *time = [file objectForKey:@"time"];
-            NSString *thumbnailUrl = @"";
-            if ( [format isEqualToString:@"jpeg"] ) {
-                thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/%@", filePath];
+            if ( file != nil && [file isKindOfClass:[NSDictionary class]] && [[file allValues] count] > 0 ) {
+                NSString *filePath = [file objectForKey:@"name"];
+                NSString *format = [[file objectForKey:@"format"] objectForKey:@"__text"];
+                int size = [[file objectForKey:@"size"] intValue];
+                NSString *attr = [file objectForKey:@"attr"];
+                NSString *time = [file objectForKey:@"time"];
+                NSString *thumbnailUrl = @"";
+                if ( [format isEqualToString:@"jpeg"] ) {
+                    thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/%@", filePath];
+                }
+                else {
+                    NSString *fileName = [filePath substringFromIndex:[filePath rangeOfString:@"/" options:NSBackwardsSearch].location + 1];
+                    thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/thumb/DCIM/100DSCIM/%@", fileName];
+                }
+                
+                CameraFile *cameraFile = [[CameraFile alloc] init];
+                cameraFile.cameraFilePath = filePath;
+                cameraFile.format = format;
+                cameraFile.size = size;
+                cameraFile.attr = attr;
+                cameraFile.time = time;
+                cameraFile.thumbnailUrl = thumbnailUrl;
+                if ( [self isExistFile:filePath] )
+                    cameraFile.completeDownloading = YES;
+                
+                [_cameraFiles addObject:cameraFile];
             }
-            else {
-                NSString *fileName = [filePath substringFromIndex:[filePath rangeOfString:@"/" options:NSBackwardsSearch].location + 1];
-                thumbnailUrl = [NSString stringWithFormat:@"http://192.72.1.1/thumb/DCIM/100DSCIM/%@", fileName];
-            }
-            
-            CameraFile *cameraFile = [[CameraFile alloc] init];
-            cameraFile.cameraFilePath = filePath;
-            cameraFile.format = format;
-            cameraFile.size = size;
-            cameraFile.attr = attr;
-            cameraFile.time = time;
-            cameraFile.thumbnailUrl = thumbnailUrl;
-            if ( [self isExistFile:filePath] )
-                cameraFile.completeDownloading = YES;
-            
-            [_cameraFiles addObject:cameraFile];
         }
         
         int amountPulled = [[dict objectForKey:@"amount"] intValue];
@@ -128,9 +130,9 @@
 }
 
 - (BOOL) isExistFile:(NSString*)cameraFilePath {
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-    NSString *documnetDirectoryPath = dirPaths[0];
-    NSString *filePath = [documnetDirectoryPath stringByAppendingPathComponent:[cameraFilePath lastPathComponent]];
+//    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+//    NSString *documnetDirectoryPath = dirPaths[0];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[cameraFilePath lastPathComponent]];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     if ( [manager fileExistsAtPath:filePath] )

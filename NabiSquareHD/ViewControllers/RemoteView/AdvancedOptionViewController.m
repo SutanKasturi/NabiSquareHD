@@ -86,6 +86,7 @@
             break;
         case kAdvancedTypeTimelapse:
             selectedButton = self.timelapseButton;
+            break;
             
         default:
             break;

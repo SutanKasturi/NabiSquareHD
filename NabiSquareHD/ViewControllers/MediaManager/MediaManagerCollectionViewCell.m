@@ -20,14 +20,7 @@
 - (void) setCameraFile:(CameraFile*)cameraFile {
     self.mCameraFile = cameraFile;
     UIImage *defaultImage;
-    if ( [cameraFile.format isEqualToString:@"jpeg"] ) {
-        [self.playButton setHidden:YES];
-        defaultImage = [UIImage imageNamed:@"default_image"];
-    }
-    else {
-        [self.playButton setHidden:NO];
-        defaultImage = [UIImage imageNamed:@"default_video"];
-    }
+    
     if ( self.mCameraFile.completeDownloading ) {
         [self.playButton setSelected:YES];
         [self.playButton setHidden:NO];
@@ -42,6 +35,16 @@
         [self.playButton setSelected:NO];
         [self.progressView setHidden:YES];
     }
+    
+    if ( [cameraFile.format isEqualToString:@"jpeg"] ) {
+        [self.playButton setHidden:YES];
+        defaultImage = [UIImage imageNamed:@"default_image"];
+    }
+    else {
+        [self.playButton setHidden:NO];
+        defaultImage = [UIImage imageNamed:@"default_video"];
+    }
+    
     [self.thumbnailImageView sd_setImageWithURL:[NSURL URLWithString:cameraFile.thumbnailUrl]
                                placeholderImage:defaultImage
                                         options:SDWebImageContinueInBackground

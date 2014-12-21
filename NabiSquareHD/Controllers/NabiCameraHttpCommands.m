@@ -16,7 +16,7 @@
     NSRange range1 = [settingsResponse rangeOfString:settingToFind];
     NSString *start = [settingsResponse substringFromIndex:range1.location + range1.length + 1];
     NSRange range2 = [start rangeOfString:@"\n"];
-    return [start substringToIndex:range2.location - 1];
+    return [start substringToIndex:range2.location];
 }
 
 + (void)sendCameraCommand:(NSString*)requestUri

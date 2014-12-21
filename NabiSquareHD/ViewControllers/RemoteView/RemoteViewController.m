@@ -114,6 +114,8 @@
     self.view.backgroundColor = [UIColor blackColor];
     
     UITapGestureRecognizer *mediaTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMediaManager)];
+    mediaTapGestureRecognizer.numberOfTapsRequired = 1;
+    [mediaManagerImageView setUserInteractionEnabled:YES];
     [mediaManagerImageView addGestureRecognizer:mediaTapGestureRecognizer];
     
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;

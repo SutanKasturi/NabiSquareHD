@@ -277,7 +277,7 @@ static BOOL _warningShownAlready = NO;
     double delayInSeconds = 2.0f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
-        CustomViewController *remoteViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RemoteViewController"] title:@"Connect To" hideNavBar:YES];
+        CustomViewController *remoteViewController = [[CustomViewController alloc] initWithViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RemoteViewController"] title:@"Camera Preview" hideNavBar:YES];
         remoteViewController.view.frame = [UIScreen mainScreen].bounds;
         [self.navigationController pushViewController:remoteViewController animated:YES];
 

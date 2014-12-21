@@ -71,9 +71,9 @@
 }
 
 - (NSString*) getFilePath:(NSString*)fileName {
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-    NSString *documnetDirectoryPath = dirPaths[0];
-    NSString *filePath = [documnetDirectoryPath stringByAppendingPathComponent:fileName];
+//    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+//    NSString *documnetDirectoryPath = dirPaths[0];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
     return filePath;
 }
 

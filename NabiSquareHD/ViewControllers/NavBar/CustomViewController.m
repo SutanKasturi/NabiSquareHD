@@ -48,8 +48,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     if ( isHideNabBar ) {
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showNavBar)];
-        [mContentViewController.view addGestureRecognizer:tapGesture];
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showNavBar)];
+//        [mContentViewController.view addGestureRecognizer:tapGesture];
     }
     
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
@@ -60,16 +60,19 @@
         isPortrait = NO;
         
     [self deviceOrientationDidChange];
-    double delayInSeconds = 2.0f;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^{
-        [self showNavBar];
-    });
+    
+    if ( isHideNabBar ) {
+        double delayInSeconds = 2.0f;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^{
+            [self showNavBar];
+        });
+    }
 }
 
 - (void)dealloc {
-    if ( isHideNabBar )
-        [[NSNotificationCenter defaultCenter] removeObserver:UIDeviceOrientationDidChangeNotification];
+//    if ( isHideNabBar )
+//        [[NSNotificationCenter defaultCenter] removeObserver:UIDeviceOrientationDidChangeNotification];
 }
 
 #pragma mark - Screen Orientation
@@ -107,6 +110,8 @@
 }
 
 - (void) showNavBar {
+    if ( isHideNabBar == NO )
+        return;
     CGRect rect = mNavBarViewController.view.frame;
     if ( mNavBarViewController.view.isHidden ) {
         rect.origin.y = 0 - rect.size.height;

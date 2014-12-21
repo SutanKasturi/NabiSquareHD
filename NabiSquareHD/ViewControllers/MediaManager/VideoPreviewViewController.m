@@ -30,7 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.videoController];
     
-    [self.videoController play];
+    
 }
 
 - (void)dealloc {
@@ -59,6 +59,21 @@
 
 - (void) videoPlayBackDidFinish:(NSNotification*) notification {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) isExistFile:(NSString*)cameraFilePath {
+    //    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    //    NSString *documnetDirectoryPath = dirPaths[0];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[cameraFilePath lastPathComponent]];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ( [manager fileExistsAtPath:filePath] )
+        [self.videoController play];
+    else {
+        NSLog(@"Not exist video file");
+    }
+    
+    [self videoPlayBackDidFinish:nil];
 }
 
 @end
