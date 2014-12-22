@@ -14,9 +14,9 @@
 #import "XMLDictionary.h"
 #import "CustomViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "RTSPPlayer.h"
+#import <FFmpegDecoder/FrameExtractor.h>
 
-@interface RemoteViewController () {
+@interface RemoteViewController ()<CGImageBufferDelegate> {
     BOOL showingSegue;
     BOOL isPortrait;
     BOOL pauseSync;
@@ -27,11 +27,10 @@
     CGFloat mediaManagerSize;
     BOOL isConnected;
     
-    RTSPPlayer *video;
 }
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSTimer *streamingTimer;
+@property (nonatomic, strong) FrameExtractor *video;
 
 @end
 
@@ -44,6 +43,7 @@
 @synthesize batteryLevelImageView;
 @synthesize motionJpegImageView;
 @synthesize timerLabel;
+@synthesize video;
 
 - (void) fadeControlIn:(UIView*) view speed:(int) speed {
     view.alpha = 0;
@@ -128,8 +128,8 @@
     }
     
     motionJpegImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    motionJpegImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:motionJpegImageView];
-//    [motionJpegImageView setUrl:[NSURL URLWithString:CAMERA_STREAM_LIVEMJPEG_HTTP]];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -142,7 +142,6 @@
     remainingFormatLabel.text = @"";
     pauseSync = NO;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(syncCameraSettings) userInfo:nil repeats:YES];
-//    [motionJpegImageView play];
     
     [self setupView];
     
@@ -195,24 +194,34 @@
     mediaManagerImageView.frame = CGRectMake(rect.size.width - 20 - mediaManagerSize, rect.size.height - 20 - mediaManagerSize, mediaManagerSize, mediaManagerSize);
     
     video = nil;
-    video = [[RTSPPlayer alloc] initWithVideo:CAMERA_STREAM_LIVE_RTSP usesTcp:NO];
-    video.outputWidth = [UIScreen mainScreen].bounds.size.width;
-    video.outputHeight = [UIScreen mainScreen].bounds.size.height;
-    
-    [_streamingTimer invalidate];
-    self.streamingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
-                                                           target:self
-                                                         selector:@selector(displayNextFrame:)
-                                                         userInfo:nil
-                                                          repeats:YES];
+    video = [[FrameExtractor alloc] initWithVideo:CAMERA_STREAM_LIVE_RTSP];
+    video.cgimageDelegate = self;
+    float width = rect.size.width;
+    float height = rect.size.height;
+    float ratio = 16.0f / 9.0f;
+    if ( width > height ) {
+        if ( width / height > ratio ) {
+            width = height * ratio;
+        }
+        else {
+            height = width / ratio;
+        }
+    }
+    else {
+        if ( height / width > ratio ) {
+            height = width * ratio;
+        }
+        else {
+            width = height / ratio;
+        }
+    }
+    video.outputWidth = width;
+    video.outputHeight = height;
 }
 
--(void)displayNextFrame:(NSTimer *)timer
+-(void)didOutputCGImageBuffer:(NSTimer *)timer
 {
-    if (![video stepFrame]) {
-        [video closeAudio];
-        return;
-    }
+    [video stepFrame];
     motionJpegImageView.image = video.currentImage;
 }
 
@@ -299,13 +308,9 @@
     [self.timer invalidate];
     self.timer = nil;
     
-    [self.streamingTimer invalidate];
-    self.streamingTimer = nil;
-    
     [timerLabel pause];
     timerLabel = nil;
     //    [motionJpegImageView stop];
-    [video closeAudio];
     video = nil;
     
     motionJpegImageView = nil;
