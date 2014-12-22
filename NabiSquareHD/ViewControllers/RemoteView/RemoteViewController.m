@@ -14,9 +14,9 @@
 #import "XMLDictionary.h"
 #import "CustomViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <FFmpegDecoder/FrameExtractor.h>
+#import "RTSPPlayer.h"
 
-@interface RemoteViewController ()<CGImageBufferDelegate> {
+@interface RemoteViewController () {
     BOOL showingSegue;
     BOOL isPortrait;
     BOOL pauseSync;
@@ -26,11 +26,12 @@
     BOOL recStarted;
     CGFloat mediaManagerSize;
     BOOL isConnected;
-    
+    RTSPPlayer *video;
 }
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) FrameExtractor *video;
+@property (nonatomic, retain) RTSPPlayer *video;
+@property (nonatomic, retain) NSTimer *nextFrameTimer;
 
 @end
 
@@ -44,6 +45,7 @@
 @synthesize motionJpegImageView;
 @synthesize timerLabel;
 @synthesize video;
+@synthesize nextFrameTimer = _nextFrameTimer;
 
 - (void) fadeControlIn:(UIView*) view speed:(int) speed {
     view.alpha = 0;
@@ -194,8 +196,7 @@
     mediaManagerImageView.frame = CGRectMake(rect.size.width - 20 - mediaManagerSize, rect.size.height - 20 - mediaManagerSize, mediaManagerSize, mediaManagerSize);
     
     video = nil;
-    video = [[FrameExtractor alloc] initWithVideo:CAMERA_STREAM_LIVE_RTSP];
-    video.cgimageDelegate = self;
+    video = [[RTSPPlayer alloc] initWithVideo:CAMERA_STREAM_LIVE_RTSP usesTcp:NO];
     float width = rect.size.width;
     float height = rect.size.height;
     float ratio = 16.0f / 9.0f;
@@ -217,11 +218,22 @@
     }
     video.outputWidth = width;
     video.outputHeight = height;
+    
+    [_nextFrameTimer invalidate];
+    self.nextFrameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
+                                                           target:self
+                                                         selector:@selector(displayNextFrame:)
+                                                         userInfo:nil
+                                                          repeats:YES];
 }
 
--(void)didOutputCGImageBuffer:(NSTimer *)timer
+-(void)displayNextFrame:(NSTimer *)timer
 {
-    [video stepFrame];
+    if (![video stepFrame]) {
+        [timer invalidate];
+        [video closeAudio];
+        return;
+    }
     motionJpegImageView.image = video.currentImage;
 }
 
@@ -310,7 +322,7 @@
     
     [timerLabel pause];
     timerLabel = nil;
-    //    [motionJpegImageView stop];
+    [video closeAudio];
     video = nil;
     
     motionJpegImageView = nil;

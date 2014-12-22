@@ -48,6 +48,18 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// FFmpeg
+#define COCOAPODS_POD_AVAILABLE_FFmpeg
+#define COCOAPODS_VERSION_MAJOR_FFmpeg 2
+#define COCOAPODS_VERSION_MINOR_FFmpeg 2
+#define COCOAPODS_VERSION_PATCH_FFmpeg 0
+
+// FFmpeg/precompiled
+#define COCOAPODS_POD_AVAILABLE_FFmpeg_precompiled
+#define COCOAPODS_VERSION_MAJOR_FFmpeg_precompiled 2
+#define COCOAPODS_VERSION_MINOR_FFmpeg_precompiled 2
+#define COCOAPODS_VERSION_PATCH_FFmpeg_precompiled 0
+
 // IQKeyboardManager
 #define COCOAPODS_POD_AVAILABLE_IQKeyboardManager
 // This library does not follow semantic-versioning,
@@ -71,7 +83,7 @@
 #define COCOAPODS_POD_AVAILABLE_MZTimerLabel
 #define COCOAPODS_VERSION_MAJOR_MZTimerLabel 0
 #define COCOAPODS_VERSION_MINOR_MZTimerLabel 5
-#define COCOAPODS_VERSION_PATCH_MZTimerLabel 0
+#define COCOAPODS_VERSION_PATCH_MZTimerLabel 1
 
 // Reachability
 #define COCOAPODS_POD_AVAILABLE_Reachability

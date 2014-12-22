@@ -8,4 +8,5 @@ pod 'MZTimerLabel'
 pod 'SDWebImage'
 pod 'AFNetworking'
 pod 'MDRadialProgress'
+pod 'FFmpeg'
 

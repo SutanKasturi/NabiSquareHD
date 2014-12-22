@@ -1,8 +1,8 @@
 //
 //  MZTimerLabel.h
-//  Version 0.5
+//  Version 0.5.1
 //  Created by MineS Chan on 2013-10-16
-//  Updated 2014-12-04
+//  Updated 2014-12-15
 
 // This code is distributed under the terms and conditions of the MIT license.
 
@@ -32,7 +32,7 @@
 #define kDefaultTimeFormat  @"HH:mm:ss"
 #define kHourFormatReplace  @"!!!*"
 #define kDefaultFireIntervalNormal  0.1
-#define kDefaultFireIntervalHighUse  0.02
+#define kDefaultFireIntervalHighUse  0.01
 #define kDefaultTimerType MZTimerLabelTypeStopWatch
 
 @interface MZTimerLabel(){
@@ -94,6 +94,17 @@
         [self setup];
 	}
 	return self;
+}
+
+#pragma mark - Cleanup
+
+- (void) removeFromSuperview {
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    
+    [super removeFromSuperview];
 }
 
 #pragma mark - Getter and Setter Method
@@ -231,7 +242,7 @@
         startCountDate = [NSDate date];
         
         if (self.timerType == MZTimerLabelTypeStopWatch && timeUserValue > 0) {
-            startCountDate = [startCountDate dateByAddingTimeInterval:(timeUserValue<0)?0:-timeUserValue];
+            startCountDate = [startCountDate dateByAddingTimeInterval:-timeUserValue];
         }
     }
     if(pausedTime != nil){
@@ -246,8 +257,8 @@
 
 #if NS_BLOCKS_AVAILABLE
 -(void)startWithEndingBlock:(void(^)(NSTimeInterval))end{
-    [self start];
     self.endedBlock = end;
+    [self start];
 }
 #endif
     
@@ -280,6 +291,7 @@
 
     NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:startCountDate];
     NSDate *timeToShow = [NSDate date];
+    BOOL timerEnded = false;
     
     /***MZTimerLabelTypeStopWatch Logic***/
     
@@ -309,33 +321,17 @@
             if(timeDiff >= timeUserValue){
                 [self pause];
                 timeToShow = [date1970 dateByAddingTimeInterval:0];
-                pausedTime = nil;
                 startCountDate = nil;
-                
-                if([_delegate respondsToSelector:@selector(timerLabel:finshedCountDownTimerWithTime:)]){
-                    [_delegate timerLabel:self finshedCountDownTimerWithTime:timeUserValue];
-                }
-                
-#if NS_BLOCKS_AVAILABLE
-                if(_endedBlock != nil){
-                    _endedBlock(timeUserValue);
-                }
-#endif
-                if(_resetTimerAfterFinish){
-                    [self reset];
-                    return;
-                }
-                
+                timerEnded = true;
             }else{
-                
                 timeToShow = [timeToCountOff dateByAddingTimeInterval:(timeDiff*-1)]; //added 0.999 to make it actually counting the whole first second
             }
+            
         }else{
             timeToShow = timeToCountOff;
         }
     }
 
-    
     //setting text value
     if ([_delegate respondsToSelector:@selector(timerLabel:customTextToDisplayAtTime:)]) {
         NSTimeInterval atTime = (_timerType == MZTimerLabelTypeStopWatch) ? timeDiff : (timeUserValue - timeDiff);
@@ -364,6 +360,23 @@
         }else{
             self.timeLabel.text = [self.dateFormatter stringFromDate:timeToShow];
         }
+    }
+    
+    //0.5.1 moved below to the bottom
+    if(timerEnded) {
+        if([_delegate respondsToSelector:@selector(timerLabel:finshedCountDownTimerWithTime:)]){
+            [_delegate timerLabel:self finshedCountDownTimerWithTime:timeUserValue];
+        }
+        
+#if NS_BLOCKS_AVAILABLE
+        if(_endedBlock != nil){
+            _endedBlock(timeUserValue);
+        }
+#endif
+        if(_resetTimerAfterFinish){
+            [self reset];
+        }
+        
     }
     
 }

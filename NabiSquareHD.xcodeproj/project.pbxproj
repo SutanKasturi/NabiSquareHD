@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5C213D6EC053DC0140F5A49E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B351FB7CA2AB91656E06B1 /* libPods.a */; };
 		8441B9CE1A40BEA80014CF95 /* CameraSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */; };
+		8456F1C11A48D6AA00F202DA /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456F1BC1A48D6AA00F202DA /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8456F1C21A48D6AA00F202DA /* RTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456F1BE1A48D6AA00F202DA /* RTSPPlayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8456F1C31A48D6AA00F202DA /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456F1C01A48D6AA00F202DA /* Utilities.m */; };
 		845E08321A3AFC2600BFE627 /* NavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E08311A3AFC2600BFE627 /* NavBarViewController.m */; };
 		845E08381A3AFC6000BFE627 /* ChangeWiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E08371A3AFC6000BFE627 /* ChangeWiFiViewController.m */; };
 		845E083B1A3AFDC700BFE627 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E083A1A3AFDC700BFE627 /* CustomViewController.m */; };
@@ -152,7 +155,6 @@
 		84A178C71A3A167700C3D0BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A178C51A3A167700C3D0BB /* Main.storyboard */; };
 		84A178C91A3A167700C3D0BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A178C81A3A167700C3D0BB /* Images.xcassets */; };
 		84A178CC1A3A167700C3D0BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A178CA1A3A167700C3D0BB /* LaunchScreen.xib */; };
-		84A178D81A3A167700C3D0BB /* NabiSquareHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */; };
 		84ABEB781A402D48004E2DEF /* FirmwareUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ABEB771A402D48004E2DEF /* FirmwareUpdateViewController.m */; };
 		84E518651A4882BB00F26A72 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E518641A4882BB00F26A72 /* AVFoundation.framework */; };
 		84E518671A4882C000F26A72 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E518661A4882C000F26A72 /* CoreMedia.framework */; };
@@ -170,18 +172,7 @@
 		84E543831A488CD600F26A72 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E543821A488CD600F26A72 /* libbz2.dylib */; };
 		84E543851A488D3300F26A72 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E543841A488D3300F26A72 /* SystemConfiguration.framework */; };
 		84E543871A488D4900F26A72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E543861A488D4900F26A72 /* Security.framework */; };
-		84E543A11A48970A00F26A72 /* FFmpegDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E543A01A48970A00F26A72 /* FFmpegDecoder.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		84A178D21A3A167700C3D0BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A178AD1A3A167600C3D0BB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84A178B41A3A167600C3D0BB;
-			remoteInfo = NabiSquareHD;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		19B351FB7CA2AB91656E06B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +180,12 @@
 		7A516458301136A1B1306C41 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8441B9CC1A40BEA80014CF95 /* CameraSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraSettingsViewController.h; path = ViewControllers/CameraSettings/CameraSettingsViewController.h; sourceTree = "<group>"; };
 		8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraSettingsViewController.m; path = ViewControllers/CameraSettings/CameraSettingsViewController.m; sourceTree = "<group>"; };
+		8456F1BB1A48D6AA00F202DA /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		8456F1BC1A48D6AA00F202DA /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		8456F1BD1A48D6AA00F202DA /* RTSPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPPlayer.h; sourceTree = "<group>"; };
+		8456F1BE1A48D6AA00F202DA /* RTSPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSPPlayer.m; sourceTree = "<group>"; };
+		8456F1BF1A48D6AA00F202DA /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		8456F1C01A48D6AA00F202DA /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		845E08301A3AFC2600BFE627 /* NavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavBarViewController.h; path = ViewControllers/NavBar/NavBarViewController.h; sourceTree = "<group>"; };
 		845E08311A3AFC2600BFE627 /* NavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavBarViewController.m; path = ViewControllers/NavBar/NavBarViewController.m; sourceTree = "<group>"; };
 		845E08361A3AFC6000BFE627 /* ChangeWiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeWiFiViewController.h; path = ViewControllers/ChangeWiFi/ChangeWiFiViewController.h; sourceTree = "<group>"; };
@@ -365,9 +362,6 @@
 		84A178C61A3A167700C3D0BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84A178C81A3A167700C3D0BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../NabiSquareHD/Images.xcassets; sourceTree = "<group>"; };
 		84A178CB1A3A167700C3D0BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NabiSquareHDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A178D61A3A167700C3D0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NabiSquareHDTests.m; sourceTree = "<group>"; };
 		84ABEB761A402D48004E2DEF /* FirmwareUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirmwareUpdateViewController.h; path = ViewControllers/FirmwareUpdate/FirmwareUpdateViewController.h; sourceTree = "<group>"; };
 		84ABEB771A402D48004E2DEF /* FirmwareUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirmwareUpdateViewController.m; path = ViewControllers/FirmwareUpdate/FirmwareUpdateViewController.m; sourceTree = "<group>"; };
 		84E518641A4882BB00F26A72 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -386,7 +380,6 @@
 		84E543821A488CD600F26A72 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		84E543841A488D3300F26A72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84E543861A488D4900F26A72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		84E543A01A48970A00F26A72 /* FFmpegDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FFmpegDecoder.framework; path = NabiSquareHD/FFmpegDecoder.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,7 +387,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E543A11A48970A00F26A72 /* FFmpegDecoder.framework in Frameworks */,
 				84E543871A488D4900F26A72 /* Security.framework in Frameworks */,
 				84E543851A488D3300F26A72 /* SystemConfiguration.framework in Frameworks */,
 				84E543831A488CD600F26A72 /* libbz2.dylib in Frameworks */,
@@ -412,13 +404,6 @@
 				84E518671A4882C000F26A72 /* CoreMedia.framework in Frameworks */,
 				84E518651A4882BB00F26A72 /* AVFoundation.framework in Frameworks */,
 				5C213D6EC053DC0140F5A49E /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84A178CE1A3A167700C3D0BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +426,20 @@
 				8441B9CD1A40BEA80014CF95 /* CameraSettingsViewController.m */,
 			);
 			name = CameraSettings;
+			sourceTree = "<group>";
+		};
+		8456F1BA1A48D6AA00F202DA /* FFMpegDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				8456F1BB1A48D6AA00F202DA /* AudioStreamer.h */,
+				8456F1BC1A48D6AA00F202DA /* AudioStreamer.m */,
+				8456F1BD1A48D6AA00F202DA /* RTSPPlayer.h */,
+				8456F1BE1A48D6AA00F202DA /* RTSPPlayer.m */,
+				8456F1BF1A48D6AA00F202DA /* Utilities.h */,
+				8456F1C01A48D6AA00F202DA /* Utilities.m */,
+			);
+			name = FFMpegDecoder;
+			path = NabiSquareHD/FFMpegDecoder;
 			sourceTree = "<group>";
 		};
 		845E082E1A3AFBEE00BFE627 /* ChangeWiFi */ = {
@@ -486,7 +485,6 @@
 		845E085F1A3B47A200BFE627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84E543A01A48970A00F26A72 /* FFmpegDecoder.framework */,
 				84E543861A488D4900F26A72 /* Security.framework */,
 				84E543841A488D3300F26A72 /* SystemConfiguration.framework */,
 				84E543821A488CD600F26A72 /* libbz2.dylib */,
@@ -749,8 +747,8 @@
 		84A178AC1A3A167600C3D0BB = {
 			isa = PBXGroup;
 			children = (
+				8456F1BA1A48D6AA00F202DA /* FFMpegDecoder */,
 				84A178B71A3A167700C3D0BB /* NabiSquareHD */,
-				84A178D41A3A167700C3D0BB /* NabiSquareHDTests */,
 				845E085F1A3B47A200BFE627 /* Frameworks */,
 				84A178B61A3A167700C3D0BB /* Products */,
 				41FB347CB2D6E0F0FF6E4AFE /* Pods */,
@@ -761,7 +759,6 @@
 			isa = PBXGroup;
 			children = (
 				84A178B51A3A167700C3D0BB /* NabiSquareHD.app */,
-				84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -788,23 +785,6 @@
 				84A178B91A3A167700C3D0BB /* Info.plist */,
 				84A178BA1A3A167700C3D0BB /* main.m */,
 				845E085E1A3B440000BFE627 /* NabiSquareHD-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		84A178D41A3A167700C3D0BB /* NabiSquareHDTests */ = {
-			isa = PBXGroup;
-			children = (
-				84A178D71A3A167700C3D0BB /* NabiSquareHDTests.m */,
-				84A178D51A3A167700C3D0BB /* Supporting Files */,
-			);
-			path = NabiSquareHDTests;
-			sourceTree = "<group>";
-		};
-		84A178D51A3A167700C3D0BB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				84A178D61A3A167700C3D0BB /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -840,24 +820,6 @@
 			productReference = 84A178B51A3A167700C3D0BB /* NabiSquareHD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84A178D01A3A167700C3D0BB /* NabiSquareHDTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84A178DE1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHDTests" */;
-			buildPhases = (
-				84A178CD1A3A167700C3D0BB /* Sources */,
-				84A178CE1A3A167700C3D0BB /* Frameworks */,
-				84A178CF1A3A167700C3D0BB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				84A178D31A3A167700C3D0BB /* PBXTargetDependency */,
-			);
-			name = NabiSquareHDTests;
-			productName = NabiSquareHDTests;
-			productReference = 84A178D11A3A167700C3D0BB /* NabiSquareHDTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -869,10 +831,6 @@
 				TargetAttributes = {
 					84A178B41A3A167600C3D0BB = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					84A178D01A3A167700C3D0BB = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 84A178B41A3A167600C3D0BB;
 					};
 				};
 			};
@@ -890,7 +848,6 @@
 			projectRoot = "";
 			targets = (
 				84A178B41A3A167600C3D0BB /* NabiSquareHD */,
-				84A178D01A3A167700C3D0BB /* NabiSquareHDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1014,13 +971,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84A178CF1A3A167700C3D0BB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1074,6 +1024,7 @@
 				845E09CC1A3D100300BFE627 /* CameraControllerViewController.m in Sources */,
 				845E08D51A3CE5DB00BFE627 /* CustomButton.m in Sources */,
 				845E08451A3B289700BFE627 /* DemoTextField.m in Sources */,
+				8456F1C21A48D6AA00F202DA /* RTSPPlayer.m in Sources */,
 				845E083B1A3AFDC700BFE627 /* CustomViewController.m in Sources */,
 				845E089E1A3BF3C900BFE627 /* ConnectToViewController.m in Sources */,
 				845E09E51A3F479200BFE627 /* XMLDictionary.m in Sources */,
@@ -1087,6 +1038,8 @@
 				845E09BA1A3D01D400BFE627 /* BurstOptionViewController.m in Sources */,
 				845E08991A3BF28B00BFE627 /* FFMPEGWrapper.m in Sources */,
 				84824EF41A3A3A480086D528 /* MainViewController.m in Sources */,
+				8456F1C11A48D6AA00F202DA /* AudioStreamer.m in Sources */,
+				8456F1C31A48D6AA00F202DA /* Utilities.m in Sources */,
 				845E09E11A3F392C00BFE627 /* VideoPreviewViewController.m in Sources */,
 				845E08461A3B289700BFE627 /* DemoTextView.m in Sources */,
 				845E09B41A3D00B400BFE627 /* VideoOptionViewController.m in Sources */,
@@ -1098,23 +1051,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84A178CD1A3A167700C3D0BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84A178D81A3A167700C3D0BB /* NabiSquareHDTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		84A178D31A3A167700C3D0BB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84A178B41A3A167600C3D0BB /* NabiSquareHD */;
-			targetProxy = 84A178D21A3A167700C3D0BB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84A178C51A3A167700C3D0BB /* Main.storyboard */ = {
@@ -1220,10 +1157,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A516458301136A1B1306C41 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1237,7 +1171,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1245,10 +1179,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 789AC8C40811D8F4E45EB986 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1262,41 +1193,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
-			};
-			name = Release;
-		};
-		84A178DF1A3A167700C3D0BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NabiSquareHDTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NabiSquareHD.app/NabiSquareHD";
-			};
-			name = Debug;
-		};
-		84A178E01A3A167700C3D0BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NabiSquareHDTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NabiSquareHD.app/NabiSquareHD";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -1317,15 +1214,6 @@
 			buildConfigurations = (
 				84A178DC1A3A167700C3D0BB /* Debug */,
 				84A178DD1A3A167700C3D0BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84A178DE1A3A167700C3D0BB /* Build configuration list for PBXNativeTarget "NabiSquareHDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84A178DF1A3A167700C3D0BB /* Debug */,
-				84A178E01A3A167700C3D0BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
